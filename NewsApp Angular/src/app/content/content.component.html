@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-4">
+          <!--Drop down-->
+          <h4>Country</h4>
+          <select class="form-control" (change)="myNews()" [(ngModel)]="selectedCountry">
+            <option value="in">India</option>
+            <option value="us">USA</option>
+            <option value="gb">UK</option>
+            <option value="ch">Australia</option>
+            <option value="au">Switzerland</option>
+            <option value="ro">Russia</option>
+            <option value="de">Germany</option>
+            <option value="jp">Japan</option>
+            <option value="se">Sweden</option>
+            <option value="fr">France</option>
+            <option value="ca">Canada</option>
+            <option value="nl">Netherland</option>
+            <option value="sg">Singapore</option>
+            <option value="at">Austria</option>
+            <option value="ae">United Arab Emirates</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <h4>Category</h4>
+          <select class="form-control" (change)="myNews()" [(ngModel)]="selectedCategory">
+            <option value="general">General</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="health">Health</option>
+            <option value="science">Science</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+            <option value="sources">Sources</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <h4>Search</h4>
+          <input type="text" class="form-control" (keyup.enter)="myNews()" [(ngModel)]="querySearch">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-8">
+  <h3>Tody Hot Lines</h3>
+  <ul class="card list-group">
+    <li *ngFor="let news of newsData" class="list-group-item">
+      <h2 class="inline">Title: </h2>{{ news.title }}
+      <h4>Author: </h4>{{ news.author }}
+      <img src= "{{news.urlToImage}}" class="img img-responsive img-rounded">
+      <h4>Description: </h4>{{ news.description }}
+      <h4>Published On: </h4>{{ news.publishedAt}}<br>
+      <a href="{{news.url}}" target="_blank" class="btn btn-warning">Read More</a>
+    </li>
+  </ul>
+</div>
